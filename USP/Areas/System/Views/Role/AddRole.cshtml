@@ -1,0 +1,59 @@
+﻿@model USP.Models.POCO.RoleAddEdit
+@{
+    ViewBag.Title = "添加角色";
+}
+@section themes{
+    <link href="/Static/Css/usp/usp.role.css" rel="stylesheet" />
+}
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <br />
+        <div class="form-group">
+            <div class="col-md-2">
+                &nbsp;<a href="/System/Role" class="btn btn-primary btn-sm active">返回角色管理</a>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", id = "rolename" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.ValidationMessage("errorname", new { @class = "text-danger", id = "errorname" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remark, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">角色权限</label>
+            <div class="col-md-10">
+                <div class="tree-role col-md-4">
+                    <ul id="menuPrivilege"></ul>
+                </div>
+                <input type="hidden" id="hdmenus" name="menus" data-val="true" data-val-required="请选择权限" />
+                <input type="hidden" id="hdprivileges" name="privileges" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="添加" class="btn btn-success" onclick="return usp.sysytem.role.checkprivilieges('#hdmenus')" />
+                @Html.ValidationMessage("errorresult", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.role.js"></script>
+    <script>
+        $(function () {
+            usp.sysytem.role.initMenuPrivilegeTree('#menuPrivilege', '/System/Role/GetRoleMenuPrivilege', '#hdid', '#hdmenus', '#hdprivileges');
+            usp.sysytem.role.checkRoleName('#rolename', '#errorname', '#hdid', '/System/Role/CheckName');
+        });
+    </script>
+}

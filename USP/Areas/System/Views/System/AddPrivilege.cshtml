@@ -1,0 +1,94 @@
+﻿@model USP.Models.POCO.PrivilegeAddEdit
+@{
+    ViewBag.Title = "添加权限";
+}
+@section themes{
+    <link href="/Static/Css/usp/usp.privilege.css" rel="stylesheet" />
+}
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <br />
+        <div class="form-group">
+            <div class="col-md-2">
+                &nbsp;<a href="/System/System/Privilege" class="btn btn-primary btn-sm active">返回权限管理</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">所属菜单</label>
+            <div class="col-md-10">
+                <div class="tree-role col-md-4">
+                    <ul id="menu"></ul>
+                    @Html.ValidationMessage("errormenu", new { @class = "text-danger", id = "errormenu" })
+                </div>
+                @{<input type="hidden" id="hdmenu" name="menu" value="@Model.Menu" />}
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", id = "privilegename" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.ValidationMessage("errorname", new { @class = "text-danger", id = "errorname" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Clazz, new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Clazz, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Clazz, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.Area, new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.Controller, new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Controller, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Controller, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Method, new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Method, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Method, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.Parameter, new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Parameter, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Parameter, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remark, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="添加" class="btn btn-success" onclick="return usp.sysytem.privilege.checkmenu('#hdmenu', '#errormenu')">
+                @Html.ValidationMessage("errorresult", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.privilege.js"></script>
+    <script>
+        $(function () {
+            usp.sysytem.privilege.initMenuTree('#menu', '/System/System/GetMenuTree', '#hdmenu');
+            usp.sysytem.privilege.checkPrivilegeName('#privilegename', '#errorname', '#hdmenu', '/System/System/CheckName');
+        });
+    </script>
+}

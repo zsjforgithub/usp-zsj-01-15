@@ -1,0 +1,929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{637C3A1A-C06F-4D96-8014-BA92C94BE0E0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>USP</RootNamespace>
+    <AssemblyName>USP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\UspBundleConfig.cs" />
+    <Compile Include="App_Start\EasuiUiBundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\System\Controllers\RoleController.cs" />
+    <Compile Include="Areas\System\Controllers\SystemController.cs" />
+    <Compile Include="Areas\System\SystemAreaRegistration.cs" />
+    <Compile Include="Bll\Impl\SysAreaBll.cs" />
+    <Compile Include="Bll\Impl\SysOperatorBll.cs" />
+    <Compile Include="Bll\Impl\SysRoleBll.cs" />
+    <Compile Include="Bll\Impl\SystemBll.cs" />
+    <Compile Include="Bll\ISysAreaBll.cs" />
+    <Compile Include="Bll\ISysOperatorBll.cs" />
+    <Compile Include="Bll\ISysRoleBll.cs" />
+    <Compile Include="Bll\ISystemBll.cs" />
+    <Compile Include="Context\Usp.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usp.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Usp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usp.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\OEMController.cs" />
+    <Compile Include="Dal\Impl\SysAreaDal.cs" />
+    <Compile Include="Dal\Impl\SysMenuDal.cs" />
+    <Compile Include="Dal\Impl\SysOperatorDal.cs" />
+    <Compile Include="Dal\Impl\SysRoleDal.cs" />
+    <Compile Include="Dal\Impl\SysPrivilegeDal.cs" />
+    <Compile Include="Dal\ISysAreaDal.cs" />
+    <Compile Include="Dal\ISysCorp.cs" />
+    <Compile Include="Dal\ISysMenuDal.cs" />
+    <Compile Include="Dal\ISysOperatorDal.cs" />
+    <Compile Include="Dal\ISysRoleDal.cs" />
+    <Compile Include="Dal\ISysPrivilegeDal.cs" />
+    <Compile Include="Filters\BenchmarkFilter.cs" />
+    <Compile Include="Models\Entity\IdCardImg.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatform.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformAccessToken.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformDefaultMsg.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformMenu.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformMenuType.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformMO.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformMsg.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformMsgChildren.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformMsgKey.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformMsgType.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformMT.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformSubscriber.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformType.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\OpenPlatformUserInfo.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysArea.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysCorp.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysCorpFeeType.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysCorpGrade.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysCorpStatus.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysCorpType.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysCorpVocation.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysLoginLog.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysMenu.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysMenuTemplate.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysOperator.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysOperatorGrade.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysOperatorStar.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysOperatorStatus.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysPrivilege.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysPrivilegeTemplate.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysRole.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysRoleMenu.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysRoleOperator.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysRolePrivilege.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SysSkin.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\UP_GetRoleByOperator_Result.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\UP_GetRoleMenu_Result.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\UP_GetRolePrivilege_Result.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\UP_ShowArea_Result.cs">
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\Usp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\POCO\Area.cs" />
+    <Compile Include="Models\POCO\Login.cs" />
+    <Compile Include="Models\POCO\LoginResult.cs" />
+    <Compile Include="Models\POCO\PrivilegeAddEdit.cs" />
+    <Compile Include="Models\POCO\UserMenu.cs" />
+    <Compile Include="Models\POCO\User.cs" />
+    <Compile Include="Models\POCO\UspMenu.cs" />
+    <Compile Include="Models\POCO\UspMenuItem.cs" />
+    <Compile Include="Models\POCO\UspPrivilege.cs" />
+    <Compile Include="Models\POCO\UspController.cs" />
+    <Compile Include="Models\POCO\RoleAddEdit.cs" />
+    <Compile Include="Models\ViewModel\GenMetadata.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\IdCardImgMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformAccessTokenMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformDefaultMsgMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMenuMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMenuTypeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMOMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMsgChildrenMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMsgKeyMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMsgMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMsgTypeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformMTMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformSubscriberMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformTypeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\OpenPlatformUserInfoMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysAreaMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysCorpFeeTypeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysCorpGradeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysCorpMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysCorpStatusMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysCorpTypeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysCorpVocationMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysLoginLogMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysMenuMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysMenuTemplateMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysOperatorGradeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysOperatorMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysOperatorStarMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysOperatorStatusMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysPrivilegeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysPrivilegeTemplateMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysRoleMenuMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysRoleMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysRoleOperatorMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysRolePrivilegeMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\SysSkinMetaData.cs">
+      <DependentUpon>GenMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ICaptchaService.cs" />
+    <Compile Include="Service\Impl\CaptchaService.cs" />
+    <Compile Include="Service\Impl\SysAreaService.cs" />
+    <Compile Include="Service\Impl\SysMenuService.cs" />
+    <Compile Include="Service\Impl\SysOperatorService.cs" />
+    <Compile Include="Service\Impl\SysPrivilegeService.cs" />
+    <Compile Include="Service\Impl\SystemService.cs" />
+    <Compile Include="Service\ISysAreaService.cs" />
+    <Compile Include="Service\ISysMenuService.cs" />
+    <Compile Include="Service\ISysOperatorService.cs" />
+    <Compile Include="Service\ISysPrivilegeService.cs" />
+    <Compile Include="Service\ISystemService.cs" />
+    <Compile Include="Attributes\Menu.cs" />
+    <Compile Include="Attributes\MenuItem.cs" />
+    <Compile Include="Attributes\Privilege.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Controllers\AuthorizeTestController.cs" />
+    <Compile Include="Controllers\PrivilegeTestController.cs" />
+    <Compile Include="Controllers\PrivilegeController.cs" />
+    <Compile Include="Controllers\AuthorizeController.cs" />
+    <Compile Include="Controllers\CaptchaController.cs" />
+    <Compile Include="Controllers\EasyUIController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\AuthorizeFilter.cs" />
+    <Compile Include="Filters\LoggerFilter.cs" />
+    <Compile Include="Filters\PrivilegeFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Ioc\UnityControllerFactory.cs" />
+    <Compile Include="Models\POCO\AjaxResult.cs" />
+    <Compile Include="Models\POCO\DataGrid.cs" />
+    <Compile Include="Models\POCO\SelectOption.cs" />
+    <Compile Include="Models\POCO\TreeNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\AssemblyUtil.cs" />
+    <Compile Include="Utility\HttpUtil.cs" />
+    <Compile Include="Utility\LogUtil.cs" />
+    <Compile Include="Utility\UploadUtil.cs" />
+    <Compile Include="Utility\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Db\Add_FK.sql" />
+    <Content Include="Db\Remove_FK.sql" />
+    <Content Include="Db\USP_procedure.sql" />
+    <Content Include="Static\Css\bootstrap.css" />
+    <Content Include="Static\Css\bootstrap.min.css" />
+    <Content Include="Static\Css\themes\black\accordion.css" />
+    <Content Include="Static\Css\themes\black\calendar.css" />
+    <Content Include="Static\Css\themes\black\combo.css" />
+    <Content Include="Static\Css\themes\black\combobox.css" />
+    <Content Include="Static\Css\themes\black\datagrid.css" />
+    <Content Include="Static\Css\themes\black\datalist.css" />
+    <Content Include="Static\Css\themes\black\datebox.css" />
+    <Content Include="Static\Css\themes\black\dialog.css" />
+    <Content Include="Static\Css\themes\black\easyui.css" />
+    <Content Include="Static\Css\themes\black\filebox.css" />
+    <Content Include="Static\Css\themes\black\images\accordion_arrows.png" />
+    <Content Include="Static\Css\themes\black\images\blank.gif" />
+    <Content Include="Static\Css\themes\black\images\calendar_arrows.png" />
+    <Content Include="Static\Css\themes\black\images\combo_arrow.png" />
+    <Content Include="Static\Css\themes\black\images\datagrid_icons.png" />
+    <Content Include="Static\Css\themes\black\images\datebox_arrow.png" />
+    <Content Include="Static\Css\themes\black\images\layout_arrows.png" />
+    <Content Include="Static\Css\themes\black\images\linkbutton_bg.png" />
+    <Content Include="Static\Css\themes\black\images\loading.gif" />
+    <Content Include="Static\Css\themes\black\images\menu_arrows.png" />
+    <Content Include="Static\Css\themes\black\images\messager_icons.png" />
+    <Content Include="Static\Css\themes\black\images\pagination_icons.png" />
+    <Content Include="Static\Css\themes\black\images\panel_tools.png" />
+    <Content Include="Static\Css\themes\black\images\searchbox_button.png" />
+    <Content Include="Static\Css\themes\black\images\slider_handle.png" />
+    <Content Include="Static\Css\themes\black\images\spinner_arrows.png" />
+    <Content Include="Static\Css\themes\black\images\tabs_icons.png" />
+    <Content Include="Static\Css\themes\black\images\tree_icons.png" />
+    <Content Include="Static\Css\themes\black\images\validatebox_warning.png" />
+    <Content Include="Static\Css\themes\black\layout.css" />
+    <Content Include="Static\Css\themes\black\linkbutton.css" />
+    <Content Include="Static\Css\themes\black\menu.css" />
+    <Content Include="Static\Css\themes\black\menubutton.css" />
+    <Content Include="Static\Css\themes\black\messager.css" />
+    <Content Include="Static\Css\themes\black\numberbox.css" />
+    <Content Include="Static\Css\themes\black\pagination.css" />
+    <Content Include="Static\Css\themes\black\panel.css" />
+    <Content Include="Static\Css\themes\black\progressbar.css" />
+    <Content Include="Static\Css\themes\black\propertygrid.css" />
+    <Content Include="Static\Css\themes\black\searchbox.css" />
+    <Content Include="Static\Css\themes\black\slider.css" />
+    <Content Include="Static\Css\themes\black\spinner.css" />
+    <Content Include="Static\Css\themes\black\splitbutton.css" />
+    <Content Include="Static\Css\themes\black\tabs.css" />
+    <Content Include="Static\Css\themes\black\textbox.css" />
+    <Content Include="Static\Css\themes\black\tooltip.css" />
+    <Content Include="Static\Css\themes\black\tree.css" />
+    <Content Include="Static\Css\themes\black\validatebox.css" />
+    <Content Include="Static\Css\themes\black\window.css" />
+    <Content Include="Static\Css\themes\bootstrap\accordion.css" />
+    <Content Include="Static\Css\themes\bootstrap\calendar.css" />
+    <Content Include="Static\Css\themes\bootstrap\combo.css" />
+    <Content Include="Static\Css\themes\bootstrap\combobox.css" />
+    <Content Include="Static\Css\themes\bootstrap\datagrid.css" />
+    <Content Include="Static\Css\themes\bootstrap\datalist.css" />
+    <Content Include="Static\Css\themes\bootstrap\datebox.css" />
+    <Content Include="Static\Css\themes\bootstrap\dialog.css" />
+    <Content Include="Static\Css\themes\bootstrap\easyui.css" />
+    <Content Include="Static\Css\themes\bootstrap\filebox.css" />
+    <Content Include="Static\Css\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\blank.gif" />
+    <Content Include="Static\Css\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\loading.gif" />
+    <Content Include="Static\Css\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="Static\Css\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="Static\Css\themes\bootstrap\layout.css" />
+    <Content Include="Static\Css\themes\bootstrap\linkbutton.css" />
+    <Content Include="Static\Css\themes\bootstrap\menu.css" />
+    <Content Include="Static\Css\themes\bootstrap\menubutton.css" />
+    <Content Include="Static\Css\themes\bootstrap\messager.css" />
+    <Content Include="Static\Css\themes\bootstrap\numberbox.css" />
+    <Content Include="Static\Css\themes\bootstrap\pagination.css" />
+    <Content Include="Static\Css\themes\bootstrap\panel.css" />
+    <Content Include="Static\Css\themes\bootstrap\progressbar.css" />
+    <Content Include="Static\Css\themes\bootstrap\propertygrid.css" />
+    <Content Include="Static\Css\themes\bootstrap\searchbox.css" />
+    <Content Include="Static\Css\themes\bootstrap\slider.css" />
+    <Content Include="Static\Css\themes\bootstrap\spinner.css" />
+    <Content Include="Static\Css\themes\bootstrap\splitbutton.css" />
+    <Content Include="Static\Css\themes\bootstrap\tabs.css" />
+    <Content Include="Static\Css\themes\bootstrap\textbox.css" />
+    <Content Include="Static\Css\themes\bootstrap\tooltip.css" />
+    <Content Include="Static\Css\themes\bootstrap\tree.css" />
+    <Content Include="Static\Css\themes\bootstrap\validatebox.css" />
+    <Content Include="Static\Css\themes\bootstrap\window.css" />
+    <Content Include="Static\Css\themes\color.css" />
+    <Content Include="Static\Css\themes\default\accordion.css" />
+    <Content Include="Static\Css\themes\default\calendar.css" />
+    <Content Include="Static\Css\themes\default\combo.css" />
+    <Content Include="Static\Css\themes\default\combobox.css" />
+    <Content Include="Static\Css\themes\default\datagrid.css" />
+    <Content Include="Static\Css\themes\default\datalist.css" />
+    <Content Include="Static\Css\themes\default\datebox.css" />
+    <Content Include="Static\Css\themes\default\dialog.css" />
+    <Content Include="Static\Css\themes\default\easyui.css" />
+    <Content Include="Static\Css\themes\default\filebox.css" />
+    <Content Include="Static\Css\themes\default\images\accordion_arrows.png" />
+    <Content Include="Static\Css\themes\default\images\blank.gif" />
+    <Content Include="Static\Css\themes\default\images\calendar_arrows.png" />
+    <Content Include="Static\Css\themes\default\images\combo_arrow.png" />
+    <Content Include="Static\Css\themes\default\images\datagrid_icons.png" />
+    <Content Include="Static\Css\themes\default\images\datebox_arrow.png" />
+    <Content Include="Static\Css\themes\default\images\layout_arrows.png" />
+    <Content Include="Static\Css\themes\default\images\linkbutton_bg.png" />
+    <Content Include="Static\Css\themes\default\images\loading.gif" />
+    <Content Include="Static\Css\themes\default\images\menu_arrows.png" />
+    <Content Include="Static\Css\themes\default\images\messager_icons.png" />
+    <Content Include="Static\Css\themes\default\images\pagination_icons.png" />
+    <Content Include="Static\Css\themes\default\images\panel_tools.png" />
+    <Content Include="Static\Css\themes\default\images\searchbox_button.png" />
+    <Content Include="Static\Css\themes\default\images\slider_handle.png" />
+    <Content Include="Static\Css\themes\default\images\spinner_arrows.png" />
+    <Content Include="Static\Css\themes\default\images\tabs_icons.png" />
+    <Content Include="Static\Css\themes\default\images\tree_icons.png" />
+    <Content Include="Static\Css\themes\default\images\validatebox_warning.png" />
+    <Content Include="Static\Css\themes\default\layout.css" />
+    <Content Include="Static\Css\themes\default\linkbutton.css" />
+    <Content Include="Static\Css\themes\default\menu.css" />
+    <Content Include="Static\Css\themes\default\menubutton.css" />
+    <Content Include="Static\Css\themes\default\messager.css" />
+    <Content Include="Static\Css\themes\default\numberbox.css" />
+    <Content Include="Static\Css\themes\default\pagination.css" />
+    <Content Include="Static\Css\themes\default\panel.css" />
+    <Content Include="Static\Css\themes\default\progressbar.css" />
+    <Content Include="Static\Css\themes\default\propertygrid.css" />
+    <Content Include="Static\Css\themes\default\searchbox.css" />
+    <Content Include="Static\Css\themes\default\slider.css" />
+    <Content Include="Static\Css\themes\default\spinner.css" />
+    <Content Include="Static\Css\themes\default\splitbutton.css" />
+    <Content Include="Static\Css\themes\default\tabs.css" />
+    <Content Include="Static\Css\themes\default\textbox.css" />
+    <Content Include="Static\Css\themes\default\tooltip.css" />
+    <Content Include="Static\Css\themes\default\tree.css" />
+    <Content Include="Static\Css\themes\default\validatebox.css" />
+    <Content Include="Static\Css\themes\default\window.css" />
+    <Content Include="Static\Css\themes\gray\accordion.css" />
+    <Content Include="Static\Css\themes\gray\calendar.css" />
+    <Content Include="Static\Css\themes\gray\combo.css" />
+    <Content Include="Static\Css\themes\gray\combobox.css" />
+    <Content Include="Static\Css\themes\gray\datagrid.css" />
+    <Content Include="Static\Css\themes\gray\datalist.css" />
+    <Content Include="Static\Css\themes\gray\datebox.css" />
+    <Content Include="Static\Css\themes\gray\dialog.css" />
+    <Content Include="Static\Css\themes\gray\easyui.css" />
+    <Content Include="Static\Css\themes\gray\filebox.css" />
+    <Content Include="Static\Css\themes\gray\images\accordion_arrows.png" />
+    <Content Include="Static\Css\themes\gray\images\blank.gif" />
+    <Content Include="Static\Css\themes\gray\images\calendar_arrows.png" />
+    <Content Include="Static\Css\themes\gray\images\combo_arrow.png" />
+    <Content Include="Static\Css\themes\gray\images\datagrid_icons.png" />
+    <Content Include="Static\Css\themes\gray\images\datebox_arrow.png" />
+    <Content Include="Static\Css\themes\gray\images\layout_arrows.png" />
+    <Content Include="Static\Css\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="Static\Css\themes\gray\images\loading.gif" />
+    <Content Include="Static\Css\themes\gray\images\menu_arrows.png" />
+    <Content Include="Static\Css\themes\gray\images\messager_icons.png" />
+    <Content Include="Static\Css\themes\gray\images\pagination_icons.png" />
+    <Content Include="Static\Css\themes\gray\images\panel_tools.png" />
+    <Content Include="Static\Css\themes\gray\images\searchbox_button.png" />
+    <Content Include="Static\Css\themes\gray\images\slider_handle.png" />
+    <Content Include="Static\Css\themes\gray\images\spinner_arrows.png" />
+    <Content Include="Static\Css\themes\gray\images\tabs_icons.png" />
+    <Content Include="Static\Css\themes\gray\images\tree_icons.png" />
+    <Content Include="Static\Css\themes\gray\images\validatebox_warning.png" />
+    <Content Include="Static\Css\themes\gray\layout.css" />
+    <Content Include="Static\Css\themes\gray\linkbutton.css" />
+    <Content Include="Static\Css\themes\gray\menu.css" />
+    <Content Include="Static\Css\themes\gray\menubutton.css" />
+    <Content Include="Static\Css\themes\gray\messager.css" />
+    <Content Include="Static\Css\themes\gray\numberbox.css" />
+    <Content Include="Static\Css\themes\gray\pagination.css" />
+    <Content Include="Static\Css\themes\gray\panel.css" />
+    <Content Include="Static\Css\themes\gray\progressbar.css" />
+    <Content Include="Static\Css\themes\gray\propertygrid.css" />
+    <Content Include="Static\Css\themes\gray\searchbox.css" />
+    <Content Include="Static\Css\themes\gray\slider.css" />
+    <Content Include="Static\Css\themes\gray\spinner.css" />
+    <Content Include="Static\Css\themes\gray\splitbutton.css" />
+    <Content Include="Static\Css\themes\gray\tabs.css" />
+    <Content Include="Static\Css\themes\gray\textbox.css" />
+    <Content Include="Static\Css\themes\gray\tooltip.css" />
+    <Content Include="Static\Css\themes\gray\tree.css" />
+    <Content Include="Static\Css\themes\gray\validatebox.css" />
+    <Content Include="Static\Css\themes\gray\window.css" />
+    <Content Include="Static\Css\themes\icon.css" />
+    <Content Include="Static\Css\themes\icons\back.png" />
+    <Content Include="Static\Css\themes\icons\blank.gif" />
+    <Content Include="Static\Css\themes\icons\cancel.png" />
+    <Content Include="Static\Css\themes\icons\clear.png" />
+    <Content Include="Static\Css\themes\icons\cut.png" />
+    <Content Include="Static\Css\themes\icons\edit_add.png" />
+    <Content Include="Static\Css\themes\icons\edit_remove.png" />
+    <Content Include="Static\Css\themes\icons\filesave.png" />
+    <Content Include="Static\Css\themes\icons\filter.png" />
+    <Content Include="Static\Css\themes\icons\help.png" />
+    <Content Include="Static\Css\themes\icons\large_chart.png" />
+    <Content Include="Static\Css\themes\icons\large_clipart.png" />
+    <Content Include="Static\Css\themes\icons\large_picture.png" />
+    <Content Include="Static\Css\themes\icons\large_shapes.png" />
+    <Content Include="Static\Css\themes\icons\large_smartart.png" />
+    <Content Include="Static\Css\themes\icons\lock.png" />
+    <Content Include="Static\Css\themes\icons\man.png" />
+    <Content Include="Static\Css\themes\icons\mini_add.png" />
+    <Content Include="Static\Css\themes\icons\mini_edit.png" />
+    <Content Include="Static\Css\themes\icons\mini_refresh.png" />
+    <Content Include="Static\Css\themes\icons\more.png" />
+    <Content Include="Static\Css\themes\icons\no.png" />
+    <Content Include="Static\Css\themes\icons\ok.png" />
+    <Content Include="Static\Css\themes\icons\pencil.png" />
+    <Content Include="Static\Css\themes\icons\print.png" />
+    <Content Include="Static\Css\themes\icons\redo.png" />
+    <Content Include="Static\Css\themes\icons\reload.png" />
+    <Content Include="Static\Css\themes\icons\search.png" />
+    <Content Include="Static\Css\themes\icons\sum.png" />
+    <Content Include="Static\Css\themes\icons\tip.png" />
+    <Content Include="Static\Css\themes\icons\undo.png" />
+    <Content Include="Static\Css\themes\metro\accordion.css" />
+    <Content Include="Static\Css\themes\metro\calendar.css" />
+    <Content Include="Static\Css\themes\metro\combo.css" />
+    <Content Include="Static\Css\themes\metro\combobox.css" />
+    <Content Include="Static\Css\themes\metro\datagrid.css" />
+    <Content Include="Static\Css\themes\metro\datalist.css" />
+    <Content Include="Static\Css\themes\metro\datebox.css" />
+    <Content Include="Static\Css\themes\metro\dialog.css" />
+    <Content Include="Static\Css\themes\metro\easyui.css" />
+    <Content Include="Static\Css\themes\metro\filebox.css" />
+    <Content Include="Static\Css\themes\metro\images\accordion_arrows.png" />
+    <Content Include="Static\Css\themes\metro\images\blank.gif" />
+    <Content Include="Static\Css\themes\metro\images\calendar_arrows.png" />
+    <Content Include="Static\Css\themes\metro\images\combo_arrow.png" />
+    <Content Include="Static\Css\themes\metro\images\datagrid_icons.png" />
+    <Content Include="Static\Css\themes\metro\images\datebox_arrow.png" />
+    <Content Include="Static\Css\themes\metro\images\layout_arrows.png" />
+    <Content Include="Static\Css\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="Static\Css\themes\metro\images\loading.gif" />
+    <Content Include="Static\Css\themes\metro\images\menu_arrows.png" />
+    <Content Include="Static\Css\themes\metro\images\messager_icons.png" />
+    <Content Include="Static\Css\themes\metro\images\pagination_icons.png" />
+    <Content Include="Static\Css\themes\metro\images\panel_tools.png" />
+    <Content Include="Static\Css\themes\metro\images\searchbox_button.png" />
+    <Content Include="Static\Css\themes\metro\images\slider_handle.png" />
+    <Content Include="Static\Css\themes\metro\images\spinner_arrows.png" />
+    <Content Include="Static\Css\themes\metro\images\tabs_icons.png" />
+    <Content Include="Static\Css\themes\metro\images\tree_icons.png" />
+    <Content Include="Static\Css\themes\metro\images\validatebox_warning.png" />
+    <Content Include="Static\Css\themes\metro\layout.css" />
+    <Content Include="Static\Css\themes\metro\linkbutton.css" />
+    <Content Include="Static\Css\themes\metro\menu.css" />
+    <Content Include="Static\Css\themes\metro\menubutton.css" />
+    <Content Include="Static\Css\themes\metro\messager.css" />
+    <Content Include="Static\Css\themes\metro\numberbox.css" />
+    <Content Include="Static\Css\themes\metro\pagination.css" />
+    <Content Include="Static\Css\themes\metro\panel.css" />
+    <Content Include="Static\Css\themes\metro\progressbar.css" />
+    <Content Include="Static\Css\themes\metro\propertygrid.css" />
+    <Content Include="Static\Css\themes\metro\searchbox.css" />
+    <Content Include="Static\Css\themes\metro\slider.css" />
+    <Content Include="Static\Css\themes\metro\spinner.css" />
+    <Content Include="Static\Css\themes\metro\splitbutton.css" />
+    <Content Include="Static\Css\themes\metro\tabs.css" />
+    <Content Include="Static\Css\themes\metro\textbox.css" />
+    <Content Include="Static\Css\themes\metro\tooltip.css" />
+    <Content Include="Static\Css\themes\metro\tree.css" />
+    <Content Include="Static\Css\themes\metro\validatebox.css" />
+    <Content Include="Static\Css\themes\metro\window.css" />
+    <Content Include="Static\Css\themes\mobile.css" />
+    <Content Include="Static\Css\usp\usp.oem.css" />
+    <Content Include="Static\Css\usp\usp.home.css" />
+    <Content Include="Db\USP_table.sql" />
+    <Content Include="Db\USP_Get_Add_FK.sql" />
+    <Content Include="Db\USP_init.sql" />
+    <Content Include="Db\USP_Get_Remove_FK.sql" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Static\Css\Site.css" />
+    <Content Include="Static\Css\usp\usp.privilege.css" />
+    <Content Include="Static\Css\usp\usp.role.css" />
+    <Content Include="Static\Js\bootstrap.js" />
+    <Content Include="Static\Js\bootstrap.min.js" />
+    <Content Include="App_Data\log4net.config" />
+    <Content Include="App_Data\unity.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Static\Js\easyloader.js" />
+    <Content Include="Models\ViewModel\GenMetadata.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GenMetadata.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Entity\Usp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Usp.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\System\Views\web.config" />
+    <Content Include="Areas\System\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\System\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\System\Views\System\Index.cshtml" />
+    <EntityDeploy Include="Context\Usp.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Usp.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Context\Usp.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Usp.edmx</DependentUpon>
+      <LastGenOutput>Usp.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Context\Usp.edmx.diagram">
+      <DependentUpon>Usp.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\System\Views\Role\Index.cshtml" />
+    <Content Include="Areas\System\Views\Role\AddRole.cshtml" />
+    <Content Include="Areas\System\Views\Role\EditRole.cshtml" />
+    <Content Include="Areas\System\Views\System\Controller.cshtml" />
+    <Content Include="Areas\System\Views\System\Menu.cshtml" />
+    <Content Include="Areas\System\Views\System\Privilege.cshtml" />
+    <Content Include="Areas\System\Views\System\AddPrivilege.cshtml" />
+    <Content Include="Areas\System\Views\System\EditPrivilege.cshtml" />
+    <None Include="Static\Js\jquery-1.11.1.intellisense.js" />
+    <Content Include="Static\Js\jquery-1.11.1.js" />
+    <Content Include="Static\Js\jquery-1.11.1.min.js" />
+    <Content Include="Static\Js\jquery-1.11.1.min.map" />
+    <None Include="Static\Js\jquery.validate-vsdoc.js" />
+    <Content Include="Static\Js\jquery.easyui-1.4.2.js" />
+    <Content Include="Static\Js\jquery.easyui.min-1.4.2.js" />
+    <Content Include="Static\Js\jquery.easyui.mobile-1.4.2.js" />
+    <Content Include="Static\Js\jquery.easyui.mobile-1.4.2.min.js" />
+    <Content Include="Static\Js\jquery.validate.js" />
+    <Content Include="Static\Js\jquery.validate.min.js" />
+    <Content Include="Static\Js\jquery.validate.unobtrusive.js" />
+    <Content Include="Static\Js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Static\Js\locale\easyui-lang-af.js" />
+    <Content Include="Static\Js\locale\easyui-lang-am.js" />
+    <Content Include="Static\Js\locale\easyui-lang-ar.js" />
+    <Content Include="Static\Js\locale\easyui-lang-bg.js" />
+    <Content Include="Static\Js\locale\easyui-lang-ca.js" />
+    <Content Include="Static\Js\locale\easyui-lang-cs.js" />
+    <Content Include="Static\Js\locale\easyui-lang-cz.js" />
+    <Content Include="Static\Js\locale\easyui-lang-da.js" />
+    <Content Include="Static\Js\locale\easyui-lang-de.js" />
+    <Content Include="Static\Js\locale\easyui-lang-el.js" />
+    <Content Include="Static\Js\locale\easyui-lang-en.js" />
+    <Content Include="Static\Js\locale\easyui-lang-es.js" />
+    <Content Include="Static\Js\locale\easyui-lang-fr.js" />
+    <Content Include="Static\Js\locale\easyui-lang-it.js" />
+    <Content Include="Static\Js\locale\easyui-lang-jp.js" />
+    <Content Include="Static\Js\locale\easyui-lang-nl.js" />
+    <Content Include="Static\Js\locale\easyui-lang-pl.js" />
+    <Content Include="Static\Js\locale\easyui-lang-pt_BR.js" />
+    <Content Include="Static\Js\locale\easyui-lang-ru.js" />
+    <Content Include="Static\Js\locale\easyui-lang-sv_SE.js" />
+    <Content Include="Static\Js\locale\easyui-lang-tr.js" />
+    <Content Include="Static\Js\locale\easyui-lang-zh_CN.js" />
+    <Content Include="Static\Js\locale\easyui-lang-zh_TW.js" />
+    <Content Include="Static\Js\modernizr-2.6.2.js" />
+    <Content Include="Static\Js\respond.js" />
+    <Content Include="Static\Js\respond.min.js" />
+    <Content Include="Static\Js\usp\usp.home.js" />
+    <Content Include="Static\Js\usp\usp.oem.js" />
+    <Content Include="Static\Js\usp\usp.system.controller.js" />
+    <Content Include="Static\Js\usp\usp.system.menu.js" />
+    <Content Include="Static\Js\usp\usp.system.privilege.js" />
+    <Content Include="Static\Js\usp\usp.system.role.js" />
+    <Content Include="Static\Js\usp\usp.system.js" />
+    <Content Include="Static\Js\usp\usp.easyui.js" />
+    <Content Include="Static\Js\usp\usp.js" />
+    <Content Include="Static\Js\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\EasyUI\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\Http500.cshtml" />
+    <Content Include="Views\Error\Http404.cshtml" />
+    <Content Include="Views\Error\Http401.cshtml" />
+    <Content Include="Views\OEM\Index.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\System\Models\" />
+    <Folder Include="Static\fonts\" />
+    <Folder Include="Static\Img\" />
+    <Folder Include="Views\AuthorizeTest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13466</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2566/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
